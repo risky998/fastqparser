@@ -19,12 +19,12 @@ final_list = []
 
 for seq in dna_lines:
     cgcontent = (seq.count('C')+seq.count('G'))/((seq.count('A'))+seq.count('T')+seq.count('G')+seq.count('C'))
-    reverse = ''
+    reverse = []
     i = len(seq)-1
     while(i>=0):
-        reverse+=seq[i]
+        reverse.append(seq[i])
         i-=1
-    seq = (str(round(cgcontent, 3)) + "\t" + reverse)
+    seq = (str(round(cgcontent, 3)) + "\t").join(reverse)
     final_list.append(seq)
 
 for line in sorted(final_list, reverse = True):
